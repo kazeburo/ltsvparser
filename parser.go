@@ -40,9 +40,9 @@ func Each(d []byte, cb func(int, []byte) error, keys ...[]byte) error {
 		}
 		for i := range keys {
 			if bytes.Equal(d[p1:p1+p3], keys[i]) {
-				// value as '-'
+				// value is null or '-'
 				var cbErr error
-				if p3 == p2 || bytes.Equal(d[p1+p3+1:p1+p2], hif) {
+				if p3 == p2 || p3-p2 == 1 || (p2-p3 == 2 && d[p1+p3+1] == '-') {
 					cbErr = cb(i, null)
 				} else {
 					cbErr = cb(i, d[p1+p3+1:p1+p2])
