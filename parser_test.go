@@ -98,6 +98,13 @@ var parseTests = []struct {
 		Values: []string{"kazeburo", ":43", "55.9", ""},
 		Hits:   []bool{true, true, true, true},
 	},
+	{
+		Name:   "hyphen",
+		Input:  "referer:-\tuser:kazeburo\t:\tage::43\theight:163.1\tweight:55.9",
+		Keys:   []string{"user", "age", "weight", ""},
+		Values: []string{"kazeburo", ":43", "55.9", ""},
+		Hits:   []bool{true, true, true, true},
+	},
 }
 
 func TestEach(t *testing.T) {
