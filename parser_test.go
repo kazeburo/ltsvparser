@@ -39,7 +39,7 @@ var parseTests = []struct {
 		Name:   "Empty",
 		Input:  "user:kazeburo\tage:\theight:-\tweight:55.9",
 		Keys:   []string{"user", "age", "height"},
-		Values: []string{"kazeburo", "", ""},
+		Values: []string{"kazeburo", "", "-"},
 		Hits:   []bool{true, true, true},
 	},
 	{
