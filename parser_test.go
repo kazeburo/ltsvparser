@@ -39,7 +39,7 @@ var parseTests = []struct {
 		Name:   "Empty",
 		Input:  "user:kazeburo\tage:\theight:-\tweight:55.9",
 		Keys:   []string{"user", "age", "height"},
-		Values: []string{"kazeburo", "", ""},
+		Values: []string{"kazeburo", "", "-"},
 		Hits:   []bool{true, true, true},
 	},
 	{
@@ -101,9 +101,9 @@ var parseTests = []struct {
 	{
 		Name:   "hyphen",
 		Input:  "referer:-\tuser:kazeburo\t:\tage::43\theight:163.1\tweight:55.9",
-		Keys:   []string{"user", "age", "weight", ""},
-		Values: []string{"kazeburo", ":43", "55.9", ""},
-		Hits:   []bool{true, true, true, true},
+		Keys:   []string{"referer", "user", "age", "weight", ""},
+		Values: []string{"-", "kazeburo", ":43", "55.9", ""},
+		Hits:   []bool{true, true, true, true, true},
 	},
 }
 
